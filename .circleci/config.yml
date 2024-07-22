@@ -1,0 +1,19 @@
+version: 2.1
+
+jobs:
+  build:
+    docker:
+      - image: circleci/python:3.8  # 使用するDockerイメージを指定
+
+    steps:
+      - checkout  # GitHubからソースコードをチェックアウト
+
+      - run:
+          name: Execute hello.py
+          command: python hello.py  # hello.py を実行するコマンド
+
+workflows:
+  version: 2
+  build:
+    jobs:
+      - build
